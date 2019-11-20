@@ -1,0 +1,97 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMILLAS
+    DELIMITADOR2
+    DURANTE
+    ENTRE
+    MAS
+    MENOS
+    PARA
+    POR
+    SEPARADOR
+
+Grammar
+
+Rule 0     S' -> cuerpo_fun
+Rule 1     cuerpo_fun -> lista_sentencias
+Rule 2     cuerpo_estructura -> DELIMITADOR1 lista_sentencias DELIMITADOR1
+Rule 3     lista_sentencias -> sentencias lista_sentencias
+Rule 4     lista_sentencias -> empty
+Rule 5     sentencias -> var_declaration
+Rule 6     sentencias -> fun_declaraciones
+Rule 7     sentencias -> empty
+Rule 8     var_declaration -> ENTERO ID
+Rule 9     var_declaration -> LETRA ID
+Rule 10    var_declaration -> ENTERO ID IGUAL NUMERO
+Rule 11    var_declaration -> ENTERO ID IGUAL ID
+Rule 12    var_declaration -> LETRA ID IGUAL ID
+Rule 13    var_declaration -> LETRA ID IGUAL CADENA
+Rule 14    var_declaration -> empty
+Rule 15    fun_declaraciones -> fun_iteracion fun_declaraciones
+Rule 16    fun_declaraciones -> empty
+Rule 17    lista_final_si -> final_si lista_final_si
+Rule 18    lista_final_si -> empty
+Rule 19    final_si -> SINO SI CORCHETE1 expression CORCHETE2 cuerpo_estructura
+Rule 20    final_si -> SINO cuerpo_estructura
+Rule 21    final_si -> empty
+Rule 22    expression -> var operadores var
+Rule 23    expression -> NUMERO operadores NUMERO
+Rule 24    expression -> NUMERO operadores var
+Rule 25    expression -> var operadores NUMERO
+Rule 26    operadores -> MENOR
+Rule 27    operadores -> MENORQUE
+Rule 28    operadores -> MAYOR
+Rule 29    operadores -> MAYORQUE
+Rule 30    operadores -> DIFERENTE
+Rule 31    operadores -> IGUALIGUAL
+Rule 32    var -> ID
+Rule 33    empty -> <empty>
+
+Terminals, with rules where they appear
+
+CADENA               : 13
+COMILLAS             : 
+CORCHETE1            : 19
+CORCHETE2            : 19
+DELIMITADOR1         : 2 2
+DELIMITADOR2         : 
+DIFERENTE            : 30
+DURANTE              : 
+ENTERO               : 8 10 11
+ENTRE                : 
+ID                   : 8 9 10 11 11 12 12 13 32
+IGUAL                : 10 11 12 13
+IGUALIGUAL           : 31
+LETRA                : 9 12 13
+MAS                  : 
+MAYOR                : 28
+MAYORQUE             : 29
+MENOR                : 26
+MENORQUE             : 27
+MENOS                : 
+NUMERO               : 10 23 23 24 25
+PARA                 : 
+POR                  : 
+SEPARADOR            : 
+SI                   : 19
+SINO                 : 19 20
+error                : 
+
+Nonterminals, with rules where they appear
+
+cuerpo_estructura    : 19 20
+cuerpo_fun           : 0
+empty                : 4 7 14 16 18 21
+expression           : 19
+final_si             : 17
+fun_declaraciones    : 6 15
+fun_iteracion        : 15
+lista_final_si       : 17
+lista_sentencias     : 1 2 3
+operadores           : 22 23 24 25
+sentencias           : 3
+var                  : 22 22 24 25
+var_declaration      : 5
+
